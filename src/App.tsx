@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+import Navbar from './components/navbar/navbar';
+import { Route, Routes } from 'react-router-dom';
+import RevenueTrends from './pages/RevenueTrends/RevenueTrends';
+import SalesByRegion from './pages/SalesByRegion/SalesByRegion';
+import ProductPerformance from './pages/ProductPerformance/ProductPerformance';
+import SalesPerformace from './pages/SalesPerformance/SalesPerformance';
+import ProductsByRevenue from './pages/ProductsByRevenue/ProductsByRevenue';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-col">
+      <Navbar />
+      <div className="w-full p-6">
+        <div className="border max-w-7xl mx-auto p-4">
+          <Routes>
+            <Route path="/" element={<RevenueTrends />} />
+            <Route path="/sales-by-region" element={<SalesByRegion />} />
+            <Route path="/product-performance" element={<ProductPerformance />} />
+            <Route path="/sales-rep-performance" element={<SalesPerformace />} />
+            <Route path="/top-products" element={<ProductsByRevenue />} />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }
